@@ -63,7 +63,7 @@ class Mast(QMainWindow):
 			self.dragPos = event.globalPos()
 			event.accept()
 # ........................................................................................................
-	# Funcion para el evento maximizar y minizar
+	# Funcion para el evento maximizar y minimizar
 	def maxx(self, event):
 		if not self.band:
 			self.setWindowState(Qt.WindowMaximized)
