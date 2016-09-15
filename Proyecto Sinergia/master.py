@@ -69,7 +69,6 @@ class Mast(QMainWindow):
 			self.setWindowState(Qt.WindowMaximized)
 			self.band = True
 		else:
-			# self.setMinimumSize(900, 569)
 			self.setWindowState(Qt.WindowNoState)
 			self.band = False
 
