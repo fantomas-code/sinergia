@@ -1,2 +1,2 @@
-# ** _Sinergia_ **
+# **_Sinergia_**
 Sistema de ventas para principiantes
