@@ -42,7 +42,7 @@ class Principal(QMainWindow):
 
 		# Conectando los botones de cerrar y entrar
 		self.btn2.clicked.connect(self.entrar)
-		self.btn3.clicked.connect(sys.exit)
+		self.btn3.clicked.connect(self.close)
 #.............................................................................................
 	#Funciones para mover la ventana cuando esta no tenga la barra de titulo
 	def mouseMoveEvent(self, event):
@@ -55,7 +55,21 @@ class Principal(QMainWindow):
 		if event.buttons() == Qt.LeftButton:
 			self.dragPos = event.globalPos()
 			event.accept()
-#.............................................................................................
+
+	#.............................................................................................
+	# Evento para cerrar ventana 
+
+	def closeEvent(self, event):
+		mensaje_salir = QMessageBox.question(self, 'Mensaje',
+            "Estas seguro de salir? ", QMessageBox.Yes | 
+            QMessageBox.No, QMessageBox.No)
+
+		if mensaje_salir == QMessageBox.Yes:
+			event.accept()
+		else:
+			event.ignore()
+#............................................................................................
+
 	#Funcion que centra la ventana
 	def centrar(self):
 		screen = QDesktopWidget().screenGeometry()
@@ -64,7 +78,7 @@ class Principal(QMainWindow):
 
 	#Funciones para cerrar y minimizar la ventana
 	def salir(self, event):
-		sys.exit()
+		self.close()
 
 	def mini(self, event):
 		self.setWindowState(Qt.WindowMinimized)
